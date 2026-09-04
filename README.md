@@ -294,3 +294,4 @@ MIT License
 Hackathon Project — AI Medical Report Simplifier
 
 Made with ❤️ by our team.
+ROHIT SHARMA
