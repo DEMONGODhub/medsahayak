@@ -1,0 +1,15 @@
+imp:- downloads a local ai model 
+in linux :- open terminal and paste this 
+  curl -fsSL https://ollama.com/install.sh | sh
+and then this
+  ollama -v
+and then this
+  ollama run llama3
+in win11:- Go to the Ollama Website in your web browser
+then install it then open "cmd"
+  check the ollama version "ollama --version"
+  ollama run phi3:mini or another model from their library.
+
+hi my fellow team mates if you wan to use this app you have to down load the "test_1.zip" & "files.zip" after that you have to extrect these 
+files into two diff folders 
+run the command in your "cmd" or "terminal" :- "python3 app.py"
