@@ -1,15 +1,120 @@
-imp:- downloads a local ai model 
-in linux :- open terminal and paste this 
-  curl -fsSL https://ollama.com/install.sh | sh
-and then this
-  ollama -v
-and then this
-  ollama run llama3
-in win11:- Go to the Ollama Website in your web browser
-then install it then open "cmd"
-  check the ollama version "ollama --version"
-  ollama run phi3:mini or another model from their library.
+# Local AI Model & Application Setup Guide
 
-hi my fellow team mates if you wan to use this app you have to down load the "test_1.zip" & "files.zip" after that you have to extrect these 
-files into two diff folders 
-run the command in your "cmd" or "terminal" :- "python3 app.py"
+Hi, fellow teammates! 👋
+
+If you want to use this application, follow the steps below to install the required local AI model and run the application.
+
+## 1. Install Ollama
+
+Ollama allows you to download and run AI models locally on your computer.
+
+### 🐧 Linux
+
+Open the **Terminal** and run:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+After installation, check whether Ollama was installed correctly:
+
+```bash
+ollama -v
+```
+
+Then download and run the required model:
+
+```bash
+ollama run llama3
+```
+
+> **Note:** The first time you run the command, Ollama may need to download the model. This can take some time depending on your internet speed.
+
+---
+
+### 🪟 Windows 11
+
+1. Open the **Ollama website** in your web browser.
+2. Download and install Ollama for Windows.
+3. Open **Command Prompt (CMD)**.
+4. Check that Ollama is installed:
+
+```cmd
+ollama --version
+```
+
+5. Download and run a model, for example:
+
+```cmd
+ollama run phi3:mini
+```
+
+You can also use another model available in the Ollama model library, depending on your system's capabilities.
+
+---
+
+# 2. Download the Application Files
+
+To use the application, you need to download these two files:
+
+* `test_1.zip`
+* `files.zip`
+
+### Extract the files
+
+1. Extract `test_1.zip`.
+2. Extract `files.zip`.
+3. **Keep the extracted files in two separate folders.**
+
+Make sure the required files and folders are extracted correctly before continuing.
+
+---
+
+# 3. Run the Application
+
+Open **Command Prompt (Windows)** or **Terminal (Linux)**.
+
+Navigate to the folder containing `app.py`.
+
+Then run:
+
+### Linux
+
+```bash
+python3 app.py
+```
+
+### Windows
+
+```cmd
+python app.py
+```
+
+If your system uses `python3` for Python, you can also use:
+
+```cmd
+python3 app.py
+```
+
+---
+
+## Quick Setup Summary
+
+### Linux
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama -v
+ollama run llama3
+python3 app.py
+```
+
+### Windows 11
+
+```cmd
+ollama --version
+ollama run phi3:mini
+python app.py
+```
+
+Then make sure `test_1.zip` and `files.zip` have been extracted into **separate folders** before running the application.
