@@ -1,0 +1,92 @@
+[
+  {
+    "patient_id": "P001",
+    "photo_path": "uploads_tmp/P001_photo_download.jpeg",
+    "report_path": "uploads_tmp/P001_report_download.jpeg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image shows a medical report that has been sent to a patient. The repor\u001b[5D\u001b[K\nreport is in a jagged shape, and it is not clear if it is a printed copy or\u001b[2D\u001b[K\nor an electronic copy. The report is sent via email, and it is not possible\u001b[8D\u001b[K\npossible to determine the email address of the patient from the image.\n\nThe report contains a list of medical conditions, and it is not clear if th\u001b[2D\u001b[K\nthe patient has any of these conditions. The report also contains a list of\u001b[2D\u001b[K\nof symptoms, but it is not clear if the patient has any of these symptoms. \u001b[K\nThe report is sent to the patient via email, and it is not possible to dete\u001b[4D\u001b[K\ndetermine the email address of the patient from the image.",
+    "redacted_text": "The image shows a medical report that has been sent to a patient. The repor\u001b[5D\u001b[K\nreport is in a jagged shape, and it is not clear if it is a printed copy or\u001b[2D\u001b[K\nor an electronic copy. The report is sent via email, and it is not possible\u001b[8D\u001b[K\npossible to determine the email address of the patient from the image.\n\nThe report contains a list of medical conditions, and it is not clear if th\u001b[2D\u001b[K\nthe patient has any of these conditions. The report also contains a list of\u001b[2D\u001b[K\nof symptoms, but it is not clear if the patient has any of these symptoms. \u001b[K\nThe report is sent to the patient via email, and it is not possible to dete\u001b[4D\u001b[K\ndetermine the email address of the patient from the image.",
+    "timestamp": "2026-09-05T11:02:07.826452+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "p002",
+    "photo_path": "uploads_tmp/p002_photo_download.jpeg",
+    "report_path": "uploads_tmp/p002_report_download.jpeg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image shows an x-ray of a person's chest, which reveals the presence of a stomach mass. The stomach mass is located in the middle of the chest, and it appears to be a large, irregularly shaped mass. The x-ray image provides a clear view of the stomach mass, allowing for a better understanding of the patient's condition.",
+    "redacted_text": "The image shows an x-ray of a person's chest, which reveals the presence of a stomach mass. The stomach mass is located in the middle of the chest, and it appears to be a large, irregularly shaped mass. The x-ray image provides a clear view of the stomach mass, allowing for a better understanding of the patient's condition.",
+    "timestamp": "2026-09-05T11:41:01.567730+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "Ms200",
+    "photo_path": "uploads_tmp/Ms200_photo_18322.jpg",
+    "report_path": "uploads_tmp/Ms200_report_26527.jpg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image shows a close-up of a person's hand, specifically the index and middle fingers, as seen through an x-ray. The x-ray reveals the bones and joints of the hand, providing a detailed view of the skeletal structure. The bones in the hand are clearly visible, and the x-ray image is in black and white, which allows for a better understanding of the hand's structure and any potential issues or abnormalities.\n\nThe image does not contain any text or other objects, and the focus is solely on the hand and its bones.",
+    "redacted_text": "The image shows a close-up of a person's hand, specifically the index and middle fingers, as seen through an x-ray. The x-ray reveals the bones and joints of the hand, providing a detailed view of the skeletal structure. The bones in the hand are clearly visible, and the x-ray image is in black and white, which allows for a better understanding of the hand's structure and any potential issues or abnormalities.\n\nThe image does not contain any text or other objects, and the focus is solely on the hand and its bones.",
+    "timestamp": "2026-09-05T12:12:32.994705+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "Ms200",
+    "photo_path": "uploads_tmp/Ms200_photo_60aea8d85ac14c80c6a5062332e3d271.jpg",
+    "report_path": "uploads_tmp/Ms200_report_Screenshot_20260905_102717.jpg",
+    "extraction_method": "ocr",
+    "raw_text": "10:27 BES wil @ 46%\n<_ .&. Elon Musk Reveals What Most People Get ...\n\nOverview Reach Engagement Audience\n\n= higher. Keep this in mind when analyzing your performance.\n\nLearn more\n\nThis Short has gotten 40,063 views since it was\n\npublished\nViews Subscribers\n40.0K +164\n42.0K 180\n28.0K 120\n14.0K 60\n0 0 \u2014_\u2014_\u2014\u2014*\n0 5 days 0\ne\nAudience Retention 0:59 (97.2%)\n\nAverage view duration - Lifetime\n\nKey moments for audience retention\n\n.\n\n100%\n66%\n28 2 \u00a9\noO a i] om\nDashboard Content Analytics Community Earn\n\n0 O q",
+    "redacted_text": "10:27 BES wil @ 46%\n<_ .&. Elon Musk Reveals What Most People Get ...\n\nOverview Reach Engagement Audience\n\n= higher. Keep this in mind when analyzing your performance.\n\nLearn more\n\nThis Short has gotten 40,063 views since it was\n\npublished\nViews Subscribers\n40.0K +164\n42.0K 180\n28.0K 120\n14.0K 60\n0 0 \u2014_\u2014_\u2014\u2014*\n0 5 days 0\ne\nAudience Retention 0:59 (97.2%)\n\nAverage view duration - Lifetime\n\nKey moments for audience retention\n\n.\n\n100%\n66%\n28 2 \u00a9\noO a i] om\nDashboard Content Analytics Community Earn\n\n0 O q",
+    "timestamp": "2026-09-05T12:14:40.675890+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "Ms200",
+    "photo_path": "uploads_tmp/Ms200_photo_26416.jpg",
+    "report_path": "uploads_tmp/Ms200_report_26527.jpg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image shows a close-up of a person's hand, specifically the index and middle fingers, as seen through an x-ray. The x-ray reveals the bones and joints of the hand, providing a detailed view of the skeletal structure. The bones in the hand are clearly visible, and the x-ray image is in black and white, which allows for a better understanding of the hand's structure and any potential issues or abnormalities.\n\nThe image does not contain any text or other objects, and the focus is solely on the hand and its bones.",
+    "redacted_text": "The image shows a close-up of a person's hand, specifically the index and middle fingers, as seen through an x-ray. The x-ray reveals the bones and joints of the hand, providing a detailed view of the skeletal structure. The bones in the hand are clearly visible, and the x-ray image is in black and white, which allows for a better understanding of the hand's structure and any potential issues or abnormalities.\n\nThe image does not contain any text or other objects, and the focus is solely on the hand and its bones.",
+    "timestamp": "2026-09-05T12:15:56.352927+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "Ms200",
+    "photo_path": "uploads_tmp/Ms200_photo_26416.jpg",
+    "report_path": "uploads_tmp/Ms200_report_26550.jpg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image shows a black and white X-ray of a person's chest, specifically the rib cage and lungs. The chest is clearly visible, and the X-ray reveals the rib cage's structure, with the ribs clearly visible and the lungs occupying the central part of the chest. The image is in black and white, which emphasizes the contrast between the different structures within the chest. The person's rib cage and lungs are the main focus of the image, providing a detailed view of the internal anatomy.\n\nThe chest area is well-defined, with the rib cage occupying the majority of the space. The lungs are clearly visible, occupying the central part of the chest. The X-ray provides a comprehensive view of the person's chest area, allowing for a detailed examination of the rib cage and lungs.",
+    "redacted_text": "The image shows a black and white X-ray of a person's chest, specifically the rib cage and lungs. The chest is clearly visible, and the X-ray reveals the rib cage's structure, with the ribs clearly visible and the lungs occupying the central part of the chest. The image is in black and white, which emphasizes the contrast between the different structures within the chest. The person's rib cage and lungs are the main focus of the image, providing a detailed view of the internal anatomy.\n\nThe chest area is well-defined, with the rib cage occupying the majority of the space. The lungs are clearly visible, occupying the central part of the chest. The X-ray provides a comprehensive view of the person's chest area, allowing for a detailed examination of the rib cage and lungs.",
+    "timestamp": "2026-09-05T12:22:39.869095+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "Pgboy",
+    "photo_path": "uploads_tmp/Pgboy_photo_60aea8d85ac14c80c6a5062332e3d271.jpg",
+    "report_path": "uploads_tmp/Pgboy_report_60aea8d85ac14c80c6a5062332e3d271.jpg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image features a skeleton with its arms and hands raised in the air, as if in a state of panic or distress. The skeleton is depicted in a black and white style, giving it a stark and dramatic appearance. The skull is facing the viewer, with its mouth open, further emphasizing the sense of panic or distress. The image does not contain any text or other discernible objects, making it a simple and direct representation of the skeleton's emotions.",
+    "redacted_text": "The image features a skeleton with its arms and hands raised in the air, as if in a state of panic or distress. The skeleton is depicted in a black and white style, giving it a stark and dramatic appearance. The skull is facing the viewer, with its mouth open, further emphasizing the sense of panic or distress. The image does not contain any text or other discernible objects, making it a simple and direct representation of the skeleton's emotions.",
+    "timestamp": "2026-09-05T12:23:37.067962+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "Pgboy",
+    "photo_path": "uploads_tmp/Pgboy_photo_60aea8d85ac14c80c6a5062332e3d271.jpg",
+    "report_path": "uploads_tmp/Pgboy_report_60aea8d85ac14c80c6a5062332e3d271.jpg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image features a skeleton with its arms and hands raised in the air, as if in a state of panic or distress. The skeleton is depicted in a black and white style, giving it a stark and dramatic appearance. The skull is facing the viewer, with its mouth open, further emphasizing the sense of panic or distress. The image does not contain any text or other discernible objects, making it a simple and direct representation of the skeleton's emotions.",
+    "redacted_text": "The image features a skeleton with its arms and hands raised in the air, as if in a state of panic or distress. The skeleton is depicted in a black and white style, giving it a stark and dramatic appearance. The skull is facing the viewer, with its mouth open, further emphasizing the sense of panic or distress. The image does not contain any text or other discernible objects, making it a simple and direct representation of the skeleton's emotions.",
+    "timestamp": "2026-09-05T12:32:16.757546+00:00",
+    "openai_status": "not_sent"
+  },
+  {
+    "patient_id": "p001",
+    "photo_path": "uploads_tmp/p001_photo_download.jpeg",
+    "report_path": "uploads_tmp/p001_report_download.jpeg",
+    "extraction_method": "vision_model:moondream",
+    "raw_text": "The image shows an x-ray of a person's chest, which reveals the presence of a stomach mass. The stomach mass is located in the middle of the chest, and it appears to be a large, irregularly shaped mass. The x-ray image provides a clear view of the stomach mass, allowing for a better understanding of the patient's condition.",
+    "redacted_text": "The image shows an x-ray of a person's chest, which reveals the presence of a stomach mass. The stomach mass is located in the middle of the chest, and it appears to be a large, irregularly shaped mass. The x-ray image provides a clear view of the stomach mass, allowing for a better understanding of the patient's condition.",
+    "timestamp": "2026-09-05T13:46:39.796931+00:00",
+    "openai_status": "not_sent"
+  }
+]
