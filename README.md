@@ -1,3 +1,5 @@
+Copyright © 2026 ROHIT. All rights reserved. Unauthorized copying, modification, or commercial use of this material is strictly prohibited.
+
 # medsahayak
 🩺 AI Medical Report Simplifier
 
