@@ -287,7 +287,7 @@ Add your preferred open-source license here.
 
 For example:
 
-MIT License
+NO lisence BOY
 
 ---
 
