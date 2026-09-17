@@ -1,299 +1,217 @@
-Copyright © 2026 ROHIT. All rights reserved. Unauthorized copying, modification, or commercial use of this material is strictly prohibited.
+# 🩺 MedSahayak — AI Medical Report Simplifier
+
+> **Making medical reports easier to understand — especially for elderly users.**
 
-# medsahayak
-🩺 AI Medical Report Simplifier
+MedSahayak is a hackathon project that uses OCR and a local vision model to extract information from medical reports and images, then prepares the content for patient-friendly explanation.
 
-«Making medical reports easier to understand — especially for elderly patients.»
+> ⚠️ **Medical safety:** MedSahayak is an information-explanation tool, not a diagnostic system. It must not be used as a substitute for a doctor or qualified healthcare professional.
 
-AI Medical Report Simplifier is a hackathon project that converts complex medical report language into simple, clear, patient-friendly explanations.
+## ✨ What it does
 
-The current version uses a hosted AI/API approach instead of running the AI model locally, allowing the team to develop and deploy the application without requiring high-end local hardware.
+- 📄 Accepts medical-report images
+- 🔎 Extracts text with **Tesseract OCR**
+- 👁️ Falls back to a local **Ollama vision model** when OCR is insufficient
+- 🔒 Performs a local PII-redaction step before downstream processing
+- 💾 Stores processed records locally for development/testing
+- 🌐 Exposes a small Flask API and browser upload page
+- 🧩 Keeps model/server settings in one configuration file
 
----
+## 🏗️ Current architecture
 
-🚀 Problem
+```text
+Medical report / image
+        │
+        ▼
+     Flask API
+        │
+        ├── Tesseract OCR
+        │       │
+        │       └── enough text? ── yes ──► extracted text
+        │
+        └── no ──► Ollama vision model ──► extracted description
+                              │
+                              ▼
+                       PII redaction
+                              │
+                              ▼
+                    Local JSON record store
+```
 
-Medical reports often contain complicated medical terminology that can be difficult for patients and especially elderly people to understand.
+The current repository uses **local Ollama inference**. A hosted AI/API stage can be added later without changing the basic upload → extraction → redaction flow.
 
-Our goal is to create a simple interface where a user can upload a medical report and receive an easy-to-understand explanation.
+## 📁 Repository structure
 
----
+```text
+medsahayak/
+├── app.py                  # Flask API + web server
+├── core.py                 # OCR, vision, redaction and storage pipeline
+├── config.py               # Model, server and storage settings
+├── requirements.txt        # Python dependencies
+├── .gitignore              # Local/runtime files excluded from Git
+├── templates/
+│   └── index.html          # Browser interface
+├── static/                 # Frontend assets, if present
+├── patient_files/          # Runtime patient files (not for Git)
+├── uploads_tmp/            # Temporary uploads (not for Git)
+└── README.md
+```
 
-💡 Solution
+The repository also contains hackathon presentation documents and earlier project archives.
 
-The application follows this basic workflow:
+## 🚀 Quick start
 
-Medical Report / Image
-        ↓
-     Backend API
-        ↓
-    Hosted AI Model
-        ↓
-Simplified Explanation
-        ↓
-      Frontend
+### 1. Clone
 
-The system focuses on explaining medical findings, not diagnosing conditions or providing medical advice.
+```bash
+git clone https://github.com/DEMONGODhub/medsahayak.git
+cd medsahayak
+```
 
----
+### 2. Create a virtual environment
 
-✨ Features
+Linux/macOS:
 
-- 📄 Upload medical reports
-- 🖼️ Support for report images/PDFs
-- 🤖 AI-powered simplification
-- 🧓 Elderly-friendly interface
-- 🔤 Simple language and short sentences
-- ⚠️ Clear medical safety disclaimer
-- 🔒 Privacy-conscious testing
-- 📱 Simple and accessible UI
-- ⏳ Processing/loading state
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
----
+Windows PowerShell:
 
-🛠️ Tech Stack
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
 
-Backend
+### 3. Install Python dependencies
 
-- Python
-- FastAPI / Flask
-- OpenAI API
-- Requests / API client
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-Frontend
+### 4. Install system dependencies
 
-- HTML
-- CSS
-- JavaScript
+MedSahayak uses Tesseract through `pytesseract`, so **Tesseract OCR must also be installed on the operating system**.
 
-«The exact frontend/backend framework can be updated as development progresses.»
+On Debian/Ubuntu/Linux Mint:
 
----
+```bash
+sudo apt update
+sudo apt install tesseract-ocr
+```
 
-📂 Project Structure
+Install and start [Ollama](https://ollama.com/), then pull the configured vision model:
 
-AI-Medical-Report-Simplifier/
-│
-├── backend/
-│   ├── app.py
-│   ├── requirements.txt
-│   └── .env.example
-│
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── samples/
-│   └── README.md
-│
-├── .gitignore
-├── README.md
-└── LICENSE
+```bash
+ollama pull moondream
+```
 
----
+### 5. Run
 
-⚙️ Getting Started
+```bash
+python app.py
+```
 
-1. Clone the repository
+Open the local address shown by Flask in your browser.
 
-git clone https://github.com/YOUR-USERNAME/AI-Medical-Report-Simplifier.git
-cd AI-Medical-Report-Simplifier
+The API health endpoint is:
 
-2. Create a virtual environment
+```text
+GET /health
+```
 
-python -m venv venv
+The processing endpoint expects:
 
-Activate it:
+```text
+POST /process
+```
 
-Windows
+with `patient_id`, `photo`, and `report` form fields.
 
-venv\Scripts\activate
+## ⚙️ Configuration
 
-Linux/macOS
+Edit `config.py` to change the local vision model, Ollama URL, OCR threshold, server port, storage locations, or model timeout.
 
-source venv/bin/activate
+Current defaults include:
 
-3. Install dependencies
+```python
+VISION_MODEL = "moondream"
+OLLAMA_API_URL = "http://localhost:11434"
+HOST = "0.0.0.0"
+PORT = 8080
+```
 
-pip install -r backend/requirements.txt
+For a different Ollama vision model, pull the model first and then update `VISION_MODEL`.
 
-4. Configure the API key
+## 🔐 Privacy & security
 
-Create a ".env" file:
+This project handles **potentially sensitive medical information**. During development:
 
-OPENAI_API_KEY=your_api_key_here
+- Use synthetic, public, or properly redacted test reports.
+- Never commit real patient records, patient photos, medical reports, or API credentials.
+- Keep runtime folders such as `patient_files/` and `uploads_tmp/` outside Git.
+- Treat `patient_records.json` as local development data, not source code.
+- Do not expose the Flask server to the public internet without adding authentication, authorization, secure transport, input validation, and appropriate data-protection controls.
+- PII redaction is heuristic and **must not be treated as a guarantee of anonymization**.
 
-⚠️ Never commit your API key to GitHub.
+### Medical disclaimer
 
-Add ".env" to ".gitignore".
+MedSahayak explains medical-report language for educational/informational use. It does **not** diagnose disease, prescribe treatment, or replace professional medical advice. Users should discuss medical reports and concerning symptoms with a qualified healthcare professional.
 
----
+## 🧠 AI behavior goals
 
-▶️ Running the Project
+The explanation layer should:
 
-Start the backend:
+- Prefer plain language over unnecessary medical jargon.
+- Explain terminology rather than inventing conclusions.
+- Clearly separate reported findings from interpretation.
+- Avoid diagnosis and treatment recommendations.
+- State uncertainty when the source report is unclear.
+- Encourage discussion with a healthcare professional when appropriate.
 
-python backend/app.py
+## 🛣️ Roadmap
 
-Then open the frontend in your browser.
-
-«The exact command may change depending on whether the team uses Flask, FastAPI, or another framework.»
-
----
-
-🧠 AI Behavior
-
-The AI is designed to:
-
-- Use simple words.
-- Keep explanations concise.
-- Explain medical terminology.
-- Explain findings clearly.
-- Avoid unnecessary medical jargon.
-- Avoid diagnosing the patient.
-- Avoid giving medical treatment advice.
-- Maintain a calm and factual tone.
-- Encourage the user to discuss the report with their doctor.
-
-Example
-
-Medical report:
-
-Mild degenerative changes are noted in the lumbar spine.
-
-Simplified explanation:
-
-The lower part of the spine shows mild changes that can happen
-over time as the spine ages.
-
-Please discuss this with your doctor.
-
----
-
-🔐 Privacy & Safety
-
-This project is a medical-information explanation tool, not a diagnostic system.
-
-During development and testing:
-
-- Use synthetic, public, or properly redacted samples.
-- Do not upload unnecessary personal information.
-- Remove names, dates of birth, patient IDs, and other identifying information.
-- Never commit private patient information to GitHub.
-- Keep API credentials in environment variables.
-
-⚠️ Medical Disclaimer
-
-This application is intended to simplify and explain medical report language.
-
-It does not provide a medical diagnosis, treatment recommendation, or professional medical advice.
-
-Please discuss the report with your doctor or qualified healthcare professional.
-
----
-
-🏗️ Current Development Approach
-
-Phase 1 — Hosted AI
-
-The project is currently using a hosted AI/API approach because local AI inference requires hardware that may not be available to every team member.
-
-Upload
-  ↓
-Backend
-  ↓
-Hosted AI
-  ↓
-Simplified Result
-  ↓
-Frontend
-
-Phase 2 — Local AI
-
-A local AI component can be added later:
-
-Upload
-  ↓
-Local AI / OCR
-  ↓
-Backend
-  ↓
-Hosted AI
-  ↓
-Simplified Result
-  ↓
-Frontend
-
-The backend is designed around a standardized input/output flow so the local AI component can be integrated later without requiring a complete frontend rewrite.
-
----
-
-👥 Team Roles
-
-The project is organized into six areas:
-
-Role| Responsibility
-🤖 Local AI Setup| Local vision/OCR model and structured extraction
-⚙️ Backend / API| Backend server and AI API integration
-🧠 Prompt Engineering| Patient-friendly AI prompt
-🎨 Frontend / UI| Upload and result interface
-🔒 Data & Privacy| Safe testing data and privacy checks
-🎤 Presentation / Pitch| Demo, slides, and pitch
-
----
-
-📌 Roadmap
-
-- [x] Define project concept
-- [x] Define team responsibilities
-- [x] Design basic architecture
-- [x] Move development to hosted AI approach
-- [ ] Build backend API
-- [ ] Create simplification prompt
-- [ ] Build frontend upload screen
-- [ ] Connect frontend to backend
-- [ ] Test with privacy-safe samples
-- [ ] Add error handling
-- [ ] Deploy hosted version
-- [ ] Add local AI support later
+- [x] Project concept and architecture
+- [x] Local OCR + vision-model pipeline
+- [x] Local PII-redaction stage
+- [x] Flask API
+- [ ] Improve file validation and safe temporary-file handling
+- [ ] Add automated tests
+- [ ] Add structured API error handling
+- [ ] Improve frontend accessibility
+- [ ] Add a dedicated explanation layer
+- [ ] Add authentication before network deployment
+- [ ] Add privacy-safe database/storage design
+- [ ] Add optional hosted AI integration
 - [ ] Prepare final hackathon demo
 
----
+## 👥 Team areas
 
-🎯 Hackathon Goal
+| Area | Responsibility |
+|---|---|
+| 🤖 Local AI | Vision/OCR model and extraction |
+| ⚙️ Backend/API | Flask server and integrations |
+| 🧠 Prompt Engineering | Patient-friendly explanations |
+| 🎨 Frontend/UI | Upload and results experience |
+| 🔒 Data & Privacy | Safe test data and privacy checks |
+| 🎤 Presentation | Demo, slides and pitch |
 
-Build a simple, accessible tool that helps people understand what their medical reports are saying without replacing their doctor.
+## 🤝 Contributing
 
----
+For development changes:
 
-🤝 Contributing
+1. Create a feature branch.
+2. Make a focused change.
+3. Run the application and relevant tests.
+4. Do not include real patient data.
+5. Open a pull request with a clear description of the change.
 
-This is currently a hackathon project.
+## 📜 License
 
-If you'd like to contribute:
+No open-source license is currently specified. Until a license is added, the default copyright rules apply and others should not assume they have permission to reuse the code.
 
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes.
-4. Test your changes.
-5. Open a pull request.
+## 📌 Project
 
----
-
-📜 License
-
-Add your preferred open-source license here.
-
-For example:
-
-NO lisence BOY
-
----
-
-⭐ Built For
-
-Hackathon Project — AI Medical Report Simplifier
-
-Made with ❤️ by our team.
-ROHIT SHARMA
+**MedSahayak — AI Medical Report Simplifier**  
+Hackathon project — 2026
